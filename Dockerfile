@@ -17,8 +17,7 @@ ENV VITE_OAUTH_PORTAL_URL=$VITE_OAUTH_PORTAL_URL
 RUN npm install -g pnpm@10.4.1
 
 # Cache bust - forces rebuild when this value changes
-ARG CACHEBUST=3
-RUN echo "Cache bust: $CACHEBUST"
+ARG CACHEBUST=1
 
 # Copy package files first for better caching
 COPY package.json ./
@@ -30,8 +29,8 @@ RUN pnpm install
 # Copy source code
 COPY . .
 
-# Clean any existing build artifacts and build fresh
-RUN rm -rf dist && pnpm run build
+# Build the application
+RUN pnpm run build
 
 # Production stage
 FROM node:22-alpine AS runner
