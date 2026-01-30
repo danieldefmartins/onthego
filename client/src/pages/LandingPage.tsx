@@ -42,11 +42,12 @@ const COLORS = {
 export default function LandingPage() {
   const [, setLocation] = useLocation();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [billingCycle, setBillingCycle] = useState<'yearly' | 'monthly'>('monthly');
+  const [billingCycle, setBillingCycle] = useState<'yearly' | 'monthly'>('yearly');
 
   const monthlyPrice = 29.99;
-  const yearlyPrice = 299;
-  const yearlySavings = (monthlyPrice * 12) - yearlyPrice;
+  const yearlyPrice = 99; // $200 off from $299
+  const originalYearlyPrice = 299;
+  const yearlySavings = originalYearlyPrice - yearlyPrice;
 
   const features = [
     {
@@ -434,7 +435,7 @@ export default function LandingPage() {
                   )}
                   {billingCycle === 'yearly' && (
                     <p className="text-sm mt-2" style={{ color: COLORS.teal }}>
-                      Save ${yearlySavings.toFixed(0)} compared to monthly billing
+                      🎉 Special Launch Price: ${yearlySavings} off (normally ${originalYearlyPrice}/year)
                     </p>
                   )}
                 </div>
