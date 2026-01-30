@@ -5,14 +5,16 @@
  */
 
 import { useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useLocation } from 'wouter';
 import { CheckCircle } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 
 export default function SubscriptionSuccess() {
-  const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
+  const [, setLocation] = useLocation();
+  
+  // Get session_id from URL query params
+  const searchParams = new URLSearchParams(window.location.search);
   const sessionId = searchParams.get('session_id');
 
   useEffect(() => {
@@ -56,14 +58,14 @@ export default function SubscriptionSuccess() {
 
           <div className="space-y-3">
             <Button
-              onClick={() => navigate('/dashboard')}
+              onClick={() => setLocation('/dashboard')}
               className="w-full bg-blue-600 hover:bg-blue-700"
               size="lg"
             >
               Go to Dashboard
             </Button>
             <Button
-              onClick={() => navigate('/subscription')}
+              onClick={() => setLocation('/subscription')}
               variant="outline"
               className="w-full"
             >
