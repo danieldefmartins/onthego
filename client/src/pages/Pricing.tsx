@@ -1,7 +1,7 @@
 /**
- * Pricing Page for Tavvy Pros Portal
+ * Pricing Page for TavvY On The Go Portal
  * 
- * Displays Pro and Pro+ plans with annual/monthly toggle
+ * Displays subscription plans with annual/monthly toggle
  * Integrates with Stripe Checkout for subscriptions
  */
 

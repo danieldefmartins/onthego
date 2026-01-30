@@ -17,7 +17,7 @@ import { handleStripeWebhook } from "../webhookHandler";
 
 // Parse allowed origins from environment variable
 // Format: comma-separated list of origins
-// Example: CORS_ALLOWED_ORIGINS=https://pros.tavvy.com,https://trytavvy.com
+// Example: CORS_ALLOWED_ORIGINS=https://onthego.tavvy.com,https://trytavvy.com
 function getAllowedOrigins(): string[] {
   const envOrigins = process.env.CORS_ALLOWED_ORIGINS || '';
   const origins = envOrigins

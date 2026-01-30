@@ -99,9 +99,9 @@ export default function Login() {
               }}
             />
           </div>
-          <CardTitle className="text-2xl text-white">Tavvy Pros</CardTitle>
+          <CardTitle className="text-2xl text-white">TavvY On The Go</CardTitle>
           <CardDescription style={{ color: COLORS.textMuted }}>
-            Sign in to access your Pro account
+            Sign in to access your mobile business account
           </CardDescription>
         </CardHeader>
         <CardContent>

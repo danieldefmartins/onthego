@@ -52,7 +52,7 @@ export async function createGHLContact(
       body: JSON.stringify({
         ...contactData,
         locationId,
-        source: 'Tavvy Pros Portal',
+        source: 'TavvY On The Go Portal',
       }),
     });
 

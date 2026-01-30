@@ -188,7 +188,7 @@ export default function Signup() {
                 Payment Successful!
               </div>
               <p className="text-sm" style={{ color: COLORS.green }}>
-                Welcome to Tavvy Pros {selectedPlan === 'pro_plus' ? 'Pro+' : 'Pro'}! Create your account to get started.
+                Welcome to TavvY On The Go! Create your account to get started.
               </p>
             </div>
             
