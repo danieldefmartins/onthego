@@ -148,6 +148,33 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen" style={{ background: `linear-gradient(135deg, ${COLORS.background} 0%, ${COLORS.backgroundAlt} 100%)` }}>
+      {/* Founding Member Banner */}
+      <div className="bg-gradient-to-r from-amber-500 to-amber-600 py-4">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <div className="bg-amber-700 p-2 rounded-full">
+                <Crown className="w-6 h-6 text-amber-200" />
+              </div>
+              <div>
+                <div className="text-amber-950 font-bold text-lg">FOUNDING MEMBER PRICING</div>
+                <div className="text-amber-900 text-sm">Only <span className="font-bold text-amber-950">768</span> of 1,000 spots left</div>
+              </div>
+            </div>
+            <div className="text-center md:text-right">
+              <div className="text-cyan-100 font-bold text-2xl">${yearlyPrice} for your first year</div>
+              <div className="text-amber-900 text-sm">Then ${originalYearlyPrice}/year. Cancel anytime.</div>
+            </div>
+            <Button 
+              onClick={handleGetStarted}
+              className="bg-amber-900 hover:bg-amber-950 text-amber-100 px-6 py-2 whitespace-nowrap"
+            >
+              <Crown className="w-4 h-4 mr-2" />
+              Founding Member Pricing
+            </Button>
+          </div>
+        </div>
+      </div>
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="text-center max-w-4xl mx-auto">
