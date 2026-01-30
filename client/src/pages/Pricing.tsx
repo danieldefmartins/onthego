@@ -6,7 +6,6 @@
  */
 
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Check, Loader2 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
@@ -18,7 +17,6 @@ import { trpc } from '../lib/trpc';
 import { STRIPE_CONFIG } from '../../../shared/stripe-config';
 
 export default function PricingPage() {
-  const navigate = useNavigate();
   const [billingInterval, setBillingInterval] = useState<'monthly' | 'annual'>('annual');
   const [couponCode, setCouponCode] = useState('');
   const [showCouponInput, setShowCouponInput] = useState(false);
