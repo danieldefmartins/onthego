@@ -1,3 +1,4 @@
+console.log('[OnTheGo] main.tsx loading...');
 import { trpc } from "@/lib/trpc";
 import { supabase } from "@/lib/supabase";
 import { UNAUTHED_ERR_MSG } from '@shared/const';
@@ -63,6 +64,7 @@ const trpcClient = trpc.createClient({
   ],
 });
 
+console.log('[OnTheGo] About to render React app...');
 createRoot(document.getElementById("root")!).render(
   <trpc.Provider client={trpcClient} queryClient={queryClient}>
     <QueryClientProvider client={queryClient}>
