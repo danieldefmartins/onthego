@@ -30,8 +30,8 @@ RUN pnpm install
 # Copy source code
 COPY . .
 
-# Build the application
-RUN pnpm run build
+# Clean any existing build artifacts and build fresh
+RUN rm -rf dist && pnpm run build
 
 # Production stage
 FROM node:22-alpine AS runner
