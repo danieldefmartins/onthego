@@ -219,6 +219,11 @@ async function startServer() {
     handleStripeWebhook
   );
   
+  // Health check endpoint for Railway
+  app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
+  });
+  
   // OAuth callback under /api/oauth/callback
   registerOAuthRoutes(app);
   // tRPC API
