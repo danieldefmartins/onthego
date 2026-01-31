@@ -103,7 +103,7 @@ export default function ForgotPassword() {
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
             <img 
-              src="/tavvy-logo-2.png" 
+              src="/tavvy-logo-horizontal.jpg" 
               alt="Tavvy" 
               className="h-12 w-auto"
             />
