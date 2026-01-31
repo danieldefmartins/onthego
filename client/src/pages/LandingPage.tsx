@@ -248,6 +248,21 @@ export default function LandingPage() {
         </div>
       </div>
 
+      {/* 65M Places Banner */}
+      <div className="py-12 px-4" style={{ background: `linear-gradient(90deg, ${COLORS.teal}, #667eea)` }}>
+        <div className="container mx-auto max-w-4xl text-center">
+          <div className="text-6xl md:text-7xl font-black text-white mb-4" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
+            65 Million+
+          </div>
+          <div className="text-2xl md:text-3xl font-semibold text-white mb-6">
+            Places Worldwide Already in Our Database
+          </div>
+          <div className="text-xl md:text-2xl font-bold uppercase tracking-wider" style={{ color: COLORS.gold }}>
+            Don't Get Left Out. Join Now.
+          </div>
+        </div>
+      </div>
+
       {/* Business Types */}
       <div className="py-16 bg-white/5 backdrop-blur-sm">
         <div className="container mx-auto px-4">
