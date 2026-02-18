@@ -25,6 +25,13 @@ import {
   MessageSquare,
   Crown,
   Sparkles,
+  Navigation,
+  Phone,
+  ExternalLink,
+  ThumbsUp,
+  Award,
+  Smartphone,
+  CreditCard,
 } from "lucide-react";
 
 // OnTheGo brand colors
@@ -422,8 +429,178 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* Pricing */}
+      {/* eCard Showcase - Your Digital Business Card */}
       <div className="py-20" style={{ background: `linear-gradient(135deg, ${COLORS.background} 0%, ${COLORS.backgroundAlt} 100%)` }}>
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <p className="text-sm font-semibold mb-2" style={{ color: COLORS.gold }}>Your Digital Business Card</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Everything Your Business Needs.<br />In One Link.
+            </h2>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto">
+              Every OnTheGo subscriber gets a stunning digital business card — your menu, your location, your endorsements, all in one shareable page.
+            </p>
+          </div>
+
+          {/* Phone Mockup + Feature Highlights */}
+          <div className="flex flex-col lg:flex-row items-center gap-12 max-w-7xl mx-auto">
+            
+            {/* Left: Scrolling Phone Screenshots */}
+            <div className="flex-shrink-0 relative">
+              <div className="relative mx-auto" style={{ width: '300px', height: '620px' }}>
+                {/* Phone frame */}
+                <div className="absolute inset-0 rounded-[40px] bg-black shadow-2xl" style={{ boxShadow: '0 25px 60px rgba(0,0,0,0.4)' }}>
+                  {/* Screen */}
+                  <div className="absolute top-[12px] left-[12px] right-[12px] bottom-[12px] rounded-[30px] overflow-hidden bg-white">
+                    {/* Notch */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[28px] bg-black rounded-b-2xl z-10" />
+                    {/* Screenshot carousel */}
+                    <div className="w-full h-full overflow-hidden">
+                      <img 
+                        src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663313028198/IDfKHzIgyMpbtDuC.PNG" 
+                        alt="Fogo na Roda - TavvY Digital Business Card" 
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+                  </div>
+                </div>
+                {/* Floating badge */}
+                <div className="absolute -top-3 -right-3 px-3 py-1.5 rounded-full text-xs font-bold shadow-lg z-20" style={{ background: COLORS.teal, color: 'white' }}>
+                  ● LIVE EXAMPLE
+                </div>
+              </div>
+              {/* Link to real card */}
+              <div className="text-center mt-6">
+                <a 
+                  href="https://tavvy.com/fogo-na-roda?locale=en" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  See this live card: tavvy.com/fogo-na-roda
+                </a>
+              </div>
+            </div>
+
+            {/* Right: Feature Highlights */}
+            <div className="flex-1 space-y-8">
+              {/* Feature 1: Endorsements */}
+              <div className="flex gap-5">
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.15)' }}>
+                  <Award className="w-7 h-7 text-yellow-300" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Verified Endorsements That Build Trust</h3>
+                  <p className="text-white/75 leading-relaxed">
+                    Customers earn badges like <span className="font-semibold text-yellow-300">"Highly Recommended"</span>, <span className="font-semibold text-yellow-300">"Expert"</span>, and <span className="font-semibold text-yellow-300">"Goes Above & Beyond"</span> — real social proof that turns browsers into buyers. No fake reviews. Just authentic endorsements.
+                  </p>
+                </div>
+              </div>
+
+              {/* Feature 2: Digital Menu */}
+              <div className="flex gap-5">
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.15)' }}>
+                  <UtensilsCrossed className="w-7 h-7" style={{ color: COLORS.teal }} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Beautiful Digital Menu — No App Needed</h3>
+                  <p className="text-white/75 leading-relaxed">
+                    Showcase your full menu with photos, prices, categories, and "Popular" badges. Customers browse your offerings before they even arrive. Update it anytime — no printing costs, no hassle.
+                  </p>
+                </div>
+              </div>
+
+              {/* Feature 3: Live Location */}
+              <div className="flex gap-5">
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.15)' }}>
+                  <Navigation className="w-7 h-7 text-green-400" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Live Location with "Get Directions"</h3>
+                  <p className="text-white/75 leading-relaxed">
+                    When you go live, customers see exactly where you are, how long you'll be there, and your custom message. One tap on <span className="font-semibold text-green-400">"Get Directions"</span> and they're on their way.
+                  </p>
+                </div>
+              </div>
+
+              {/* Feature 4: One-Tap Contact */}
+              <div className="flex gap-5">
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.15)' }}>
+                  <Phone className="w-7 h-7" style={{ color: COLORS.gold }} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Call, Text, Order, Message — All in One</h3>
+                  <p className="text-white/75 leading-relaxed">
+                    Your card includes one-tap Call, Text, Order Online, Email, social media links, and even Apple Wallet & Google Wallet integration. Customers never have to search for how to reach you.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom: More Screenshots Row */}
+          <div className="mt-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {/* Screenshot 2: Contact & Menu */}
+              <div className="rounded-2xl overflow-hidden shadow-xl bg-white">
+                <img 
+                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663313028198/AzoIjESoubtEIjjI.PNG" 
+                  alt="Contact options and menu highlights" 
+                  className="w-full h-auto"
+                />
+                <div className="p-4 text-center">
+                  <p className="text-sm font-semibold text-slate-800">Contact & Menu Photos</p>
+                  <p className="text-xs text-slate-500">One-tap call, text, order & social links</p>
+                </div>
+              </div>
+
+              {/* Screenshot 3: Full Menu */}
+              <div className="rounded-2xl overflow-hidden shadow-xl bg-white">
+                <img 
+                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663313028198/FEWThGchvHyROjhu.PNG" 
+                  alt="Full digital menu with categories" 
+                  className="w-full h-auto"
+                />
+                <div className="p-4 text-center">
+                  <p className="text-sm font-semibold text-slate-800">Full Digital Menu</p>
+                  <p className="text-xs text-slate-500">Categories, photos, prices & popular badges</p>
+                </div>
+              </div>
+
+              {/* Screenshot 4: Catering & Messaging */}
+              <div className="rounded-2xl overflow-hidden shadow-xl bg-white">
+                <img 
+                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663313028198/hpGyCzvHuypUttEX.PNG" 
+                  alt="Catering menu and messaging" 
+                  className="w-full h-auto"
+                />
+                <div className="p-4 text-center">
+                  <p className="text-sm font-semibold text-slate-800">Catering & Messaging</p>
+                  <p className="text-xs text-slate-500">Wallet integration & direct messaging</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <Button 
+              onClick={handleGetStarted}
+              size="lg"
+              className="text-lg px-10 py-6 shadow-xl hover:scale-[1.02] transition-transform"
+              style={{ background: COLORS.teal, color: 'white' }}
+            >
+              Get Your Digital Business Card
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+            <p className="text-white/60 mt-4 text-sm">Included free with every OnTheGo subscription</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Pricing */}
+      <div id="pricing" className="py-20" style={{ background: `linear-gradient(135deg, ${COLORS.backgroundAlt} 0%, ${COLORS.background} 100%)` }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-sm font-semibold mb-2" style={{ color: COLORS.teal }}>Simple Pricing</p>
