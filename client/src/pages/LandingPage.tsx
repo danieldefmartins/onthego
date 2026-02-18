@@ -54,8 +54,8 @@ export default function LandingPage() {
   const monthlyPrice = 49.99;
   const originalMonthlyPrice = 59.99;
   const monthlySavings = originalMonthlyPrice - monthlyPrice;
-  const yearlyPrice = 99; // $200 off from $299
-  const originalYearlyPrice = 299;
+  const yearlyPrice = 199; // $400 off from $599
+  const originalYearlyPrice = 599;
   const yearlySavings = originalYearlyPrice - yearlyPrice;
 
   const features = [

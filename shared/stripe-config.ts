@@ -21,10 +21,10 @@ export const STRIPE_CONFIG = {
           displayPrice: '$59.99/month',
         },
         annual: {
-          id: 'price_1SswCBIeV9jtGwIXNPpnKcXA', // $299/year
-          amount: 29900,
+          id: 'price_1SswCBIeV9jtGwIXNPpnKcXA', // $599/year
+          amount: 59900,
           interval: 'year',
-          displayPrice: '$299/year',
+          displayPrice: '$599/year',
         },
       },
       coupons: {
@@ -36,11 +36,11 @@ export const STRIPE_CONFIG = {
           finalPrice: '$49.99/month',
         },
         annual: {
-          id: 'eoz9blDN', // $200 off annual
-          name: '$200 Off',
-          discount: 20000,
+          id: 'eoz9blDN', // $400 off annual
+          name: '$400 Off',
+          discount: 40000,
           duration: 'once',
-          finalPrice: '$99/year',
+          finalPrice: '$199/year',
         },
       },
       features: [
