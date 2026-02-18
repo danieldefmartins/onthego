@@ -44,7 +44,9 @@ export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [billingCycle, setBillingCycle] = useState<'yearly' | 'monthly'>('yearly');
 
-  const monthlyPrice = 29.99;
+  const monthlyPrice = 49.99;
+  const originalMonthlyPrice = 59.99;
+  const monthlySavings = originalMonthlyPrice - monthlyPrice;
   const yearlyPrice = 99; // $200 off from $299
   const originalYearlyPrice = 299;
   const yearlySavings = originalYearlyPrice - yearlyPrice;
@@ -107,7 +109,7 @@ export default function LandingPage() {
       initials: "JK"
     },
     {
-      quote: "$29.99 a month? I was spending that much on Instagram ads every week with worse results. This is a no-brainer.",
+      quote: "$49.99 a month? I was spending that much on Instagram ads every week with worse results. This is a no-brainer.",
       author: "Sarah Johnson",
       business: "Sweet Wheels Ice Cream",
       location: "Miami, FL",
@@ -483,7 +485,7 @@ export default function LandingPage() {
                   </div>
                   {billingCycle === 'monthly' && (
                     <p className="text-sm text-slate-600 mt-2">
-                      Special offer: $10 off per month for your first year (then $39.99/month)
+                      🎉 Founding Member Price: ${monthlySavings.toFixed(0)} off per month for your first year (then ${originalMonthlyPrice}/month)
                     </p>
                   )}
                   {billingCycle === 'yearly' && (

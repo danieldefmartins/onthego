@@ -39,6 +39,7 @@ export default function Signup() {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<'pro' | 'pro_plus'>(planFromUrl || 'pro');
+  const [billingCycle, setBillingCycle] = useState<'yearly' | 'monthly'>('yearly');
 
   // Update selected plan when URL changes
   useEffect(() => {
@@ -342,6 +343,20 @@ export default function Signup() {
     );
   }
 
+  // Pricing data
+  const pricing = {
+    pro: {
+      yearly: { price: 199, original: 599, renewal: '$599/year', savings: '$400' },
+      monthly: { price: 49.99, original: 59.99, renewal: '$59.99/mo', savings: '$10' },
+    },
+    pro_plus: {
+      yearly: { price: 599, original: 1399, renewal: '$1,399/year', savings: '$800' },
+      monthly: { price: 69.99, original: 119.99, renewal: '$119.99/mo', savings: '$50' },
+    },
+  };
+
+  const currentPricing = pricing[selectedPlan][billingCycle];
+
   // Default view - Plan selection before payment
   return (
     <div 
@@ -357,6 +372,33 @@ export default function Signup() {
           />
           <h1 className="text-3xl font-bold text-white mb-2">Choose Your Plan</h1>
           <p style={{ color: COLORS.textMuted }}>Select the plan that's right for your business</p>
+
+          {/* Billing Cycle Toggle */}
+          <div className="flex items-center justify-center gap-3 mt-6">
+            <button
+              onClick={() => setBillingCycle('monthly')}
+              className="px-5 py-2 rounded-full text-sm font-semibold transition-all"
+              style={{
+                backgroundColor: billingCycle === 'monthly' ? COLORS.teal : 'transparent',
+                color: billingCycle === 'monthly' ? 'black' : COLORS.textMuted,
+                border: billingCycle === 'monthly' ? 'none' : `1px solid ${COLORS.border}`,
+              }}
+            >
+              Monthly
+            </button>
+            <button
+              onClick={() => setBillingCycle('yearly')}
+              className="px-5 py-2 rounded-full text-sm font-semibold transition-all"
+              style={{
+                backgroundColor: billingCycle === 'yearly' ? COLORS.teal : 'transparent',
+                color: billingCycle === 'yearly' ? 'black' : COLORS.textMuted,
+                border: billingCycle === 'yearly' ? 'none' : `1px solid ${COLORS.border}`,
+              }}
+            >
+              Yearly
+              <span className="ml-1 text-xs">Save $$$</span>
+            </button>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -391,11 +433,24 @@ export default function Signup() {
             </div>
             
             <h3 className="text-xl font-bold text-white mb-1">Pro</h3>
-            <div className="flex items-baseline gap-1 mb-2">
-              <span className="text-4xl font-bold text-white">$199</span>
-              <span style={{ color: COLORS.textDim }}>/first year</span>
+            <div className="flex items-baseline gap-1 mb-1">
+              <span className="text-lg line-through" style={{ color: COLORS.textDim }}>
+                ${billingCycle === 'yearly' ? '599' : '59.99'}
+              </span>
+              <span className="text-4xl font-bold text-white">
+                ${billingCycle === 'yearly' ? '199' : '49.99'}
+              </span>
+              <span style={{ color: COLORS.textDim }}>/{billingCycle === 'yearly' ? 'first year' : 'mo'}</span>
             </div>
-            <p className="text-xs mb-4" style={{ color: COLORS.textDim }}>Then $599/year</p>
+            <p className="text-xs mb-1" style={{ color: COLORS.textDim }}>
+              {billingCycle === 'yearly' ? 'Then $599/year' : 'for your first 12 months'}
+            </p>
+            {billingCycle === 'monthly' && (
+              <p className="text-xs mb-1" style={{ color: COLORS.textDim }}>Then $59.99/mo</p>
+            )}
+            <div className="inline-block text-xs font-bold px-2 py-0.5 rounded-full mb-3" style={{ backgroundColor: `${COLORS.teal}20`, color: COLORS.teal }}>
+              Founders Discount: Save {billingCycle === 'yearly' ? '$400' : '$10/mo'}
+            </div>
             
             <div className="space-y-2">
               {proFeatures.map((feature, i) => (
@@ -439,11 +494,24 @@ export default function Signup() {
             </div>
             
             <h3 className="text-xl font-bold text-white mb-1">Pro+</h3>
-            <div className="flex items-baseline gap-1 mb-2">
-              <span className="text-4xl font-bold text-white">$599</span>
-              <span style={{ color: COLORS.textDim }}>/first year</span>
+            <div className="flex items-baseline gap-1 mb-1">
+              <span className="text-lg line-through" style={{ color: COLORS.textDim }}>
+                ${billingCycle === 'yearly' ? '1,399' : '119.99'}
+              </span>
+              <span className="text-4xl font-bold text-white">
+                ${billingCycle === 'yearly' ? '599' : '69.99'}
+              </span>
+              <span style={{ color: COLORS.textDim }}>/{billingCycle === 'yearly' ? 'first year' : 'mo'}</span>
             </div>
-            <p className="text-xs mb-4" style={{ color: COLORS.textDim }}>Then $1,399/year</p>
+            <p className="text-xs mb-1" style={{ color: COLORS.textDim }}>
+              {billingCycle === 'yearly' ? 'Then $1,399/year' : 'for your first 12 months'}
+            </p>
+            {billingCycle === 'monthly' && (
+              <p className="text-xs mb-1" style={{ color: COLORS.textDim }}>Then $119.99/mo</p>
+            )}
+            <div className="inline-block text-xs font-bold px-2 py-0.5 rounded-full mb-3" style={{ backgroundColor: `${COLORS.gold}20`, color: COLORS.gold }}>
+              Founders Discount: Save {billingCycle === 'yearly' ? '$800' : '$50/mo'}
+            </div>
             
             <div className="space-y-2">
               {proPlusFeatures.map((feature, i) => (
@@ -480,7 +548,10 @@ export default function Signup() {
               window.location.href = `/?checkout=${selectedPlan}`;
             }}
           >
-            Continue with {selectedPlan === 'pro_plus' ? 'Pro+' : 'Pro'} - ${selectedPlan === 'pro_plus' ? '599' : '199'} first year
+            Continue with {selectedPlan === 'pro_plus' ? 'Pro+' : 'Pro'} - ${billingCycle === 'yearly' 
+              ? (selectedPlan === 'pro_plus' ? '599' : '199') + ' first year'
+              : (selectedPlan === 'pro_plus' ? '69.99' : '49.99') + '/mo'
+            }
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
           

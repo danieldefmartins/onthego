@@ -15,10 +15,10 @@ export const STRIPE_CONFIG = {
       name: 'TavvY OnTheGo',
       prices: {
         monthly: {
-          id: 'price_1SswBUIeV9jtGwIXnYP5k1Hl', // $39.99/month
-          amount: 3999,
+          id: 'price_1SswBUIeV9jtGwIXnYP5k1Hl', // $59.99/month
+          amount: 5999,
           interval: 'month',
-          displayPrice: '$39.99/month',
+          displayPrice: '$59.99/month',
         },
         annual: {
           id: 'price_1SswCBIeV9jtGwIXNPpnKcXA', // $299/year
@@ -33,7 +33,7 @@ export const STRIPE_CONFIG = {
           name: '$10 Off Per Month',
           discount: 1000,
           duration: '12 months',
-          finalPrice: '$29.99/month',
+          finalPrice: '$49.99/month',
         },
         annual: {
           id: 'eoz9blDN', // $200 off annual
